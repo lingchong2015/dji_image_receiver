@@ -1,0 +1,213 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextureView
+        android:id="@+id/video_previewer_surface"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center" />
+
+    <ImageView
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        android:scaleType="fitXY"
+        android:src="@drawable/plus" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/ll_attitude_info">
+
+
+    </FrameLayout>
+
+    <RelativeLayout
+        android:id="@+id/tracking_bg_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true">
+
+        <ImageView
+            android:id="@+id/tracking_send_rect_iv"
+            android:layout_width="150dp"
+            android:layout_height="100dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/visual_track_target_bg"
+            android:visibility="invisible" />
+
+        <ImageView
+            android:id="@+id/tracking_rst_rect_iv"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/visual_track_cannotconfirm"
+            android:visibility="invisible" />
+
+        <ImageButton
+            android:id="@+id/tracking_stop_btn"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="10dp"
+            android:background="#00000000"
+            android:scaleType="fitXY"
+            android:src="@drawable/mission_stop"
+            android:visibility="invisible" />
+
+        <Button
+            android:id="@+id/confirm_btn"
+            android:layout_width="45dp"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/tracking_stop_btn"
+            android:layout_alignEnd="@+id/tracking_stop_btn"
+            android:layout_alignStart="@+id/tracking_stop_btn"
+            android:text="A"
+            android:visibility="invisible" />
+
+        <Button
+            android:id="@+id/reject_btn"
+            android:layout_width="45dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="90dp"
+            android:layout_marginStart="10dp"
+            android:text="R"
+            android:visibility="invisible" />
+
+    </RelativeLayout>
+
+    <SlidingDrawer
+        android:id="@+id/tracking_drawer_sd"
+        android:layout_width="200dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:content="@+id/tracking_drawer_content_rl"
+        android:handle="@+id/tracking_handle"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@id/tracking_handle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <RelativeLayout
+            android:id="@id/tracking_drawer_content_rl"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true">
+
+            <ScrollView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:layout_centerVertical="true"
+                android:clickable="false"
+                android:scrollbars="vertical">
+
+                <TextView
+                    android:id="@+id/tv_tracking_info"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:scrollbars="vertical"
+                    android:text="test"
+                    android:textColor="@color/white"
+                    android:textSize="18sp" />
+            </ScrollView>
+
+        </RelativeLayout>
+
+    </SlidingDrawer>
+
+    <LinearLayout
+        android:id="@+id/ll_attitude_info"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_above="@id/linearLayout"
+        android:orientation="horizontal"
+        android:visibility="visible"
+        android:weightSum="1">
+
+        <TextView
+            android:id="@+id/tv_drone_attitude_info"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:text="Drone"
+            android:textSize="10sp" />
+
+        <TextView
+            android:id="@+id/tv_gimbal_attitude_info"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:text="Gimbal"
+            android:textSize="10sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <Button
+            android:id="@+id/btn_capture"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="0.3"
+            android:text="Capture"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/btn_send_data"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="0.3"
+            android:text="Send"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/btn_location"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="0.3"
+            android:text="Location"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/tracking_drawer_control_ib"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="15dp"
+        android:background="#ff000000"
+        android:src="@drawable/mission_other_icon" />
+
+    <ImageButton
+        android:id="@+id/send_drawer_control_ib"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginRight="15dp"
+        android:background="#ff000000"
+        android:src="@drawable/back_button_press" />
+
+</RelativeLayout>

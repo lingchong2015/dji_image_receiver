@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">DjiDroneImageReceiver</string>
+    <string name="chinese_app_name">大疆无人机图像接收端</string>
+    <string name="disconnected">Disconnected</string>
+</resources>
